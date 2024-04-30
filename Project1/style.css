@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    background-color: transparent;
+    scroll-behavior: smooth;
+}
+
+.Top a{
+    color: white !important;
+    padding: 0 20px;
+    text-align: right;
+    margin-right: 0;
+}
+
+.Top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: aliceblue;
+    height: 40px;
+}
+.Top p{
+    text-align: center;
+}
+/* ============================================Navbar css=========================== */
+.navbar-brand{
+    font-size: 24px;
+    font-weight: bold;
+}
+nav{
+    margin: 40px 40px 20px 40px;
+    border-bottom: 2px solid rgba(220, 220, 220,0.5);
+}
+.nav-link{
+    font-size: 16px;
+    margin: 0 20px;
+}
+.fa-cart-shopping,.fa-heart,.fa-magnifying-glass{
+    font-size: 24px;
+    padding: 5px;
+    margin:0 20px;
+    color: rgba(0, 0, 0,0.3);
+}
+.fa-magnifying-glass{
+    margin-left: -40px;
+}
+.heart{
+    background-color: red;
+    border-color: rgba(0, 0, 0,0.3);
+    border-radius: 50%;
+    
+  
+}
+/* ================================================Sidebar CSS================================== */
+.sidebar{
+    margin:0px 40px 0 80px;
+    padding: 20px;
+    border-right: 1px solid rgba(220, 220, 220,0.5);
+    overflow-y: scroll;
+    height: 344px;
+}
+.sidebar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+.sidebar li{
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+.rotate {
+    transition: transform 0.5s ease; 
+    transform: rotate(90deg);
+  }
+
+.sidebar{
+    width: 15%;
+}
+/* ==================================================Carousel CSS====================================== */
+
+  
+  .Carousel {
+    --carousel-gap: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: var(--carousel-gap);
+    overflow-y: hidden;
+    overflow-x: auto;
+  
+    scroll-behavior: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    height: 50vw;
+    outline: none !important;
+    min-height: 20rem;
+    max-height: 30rem;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .Card {
+      aspect-ratio: var(--card-ratio);
+      flex: 1 0 auto;
+      min-height: 100%;
+      scroll-snap-align: start;
+    }
+    
+    .Card__media {
+      aspect-ratio: auto;
+    }
+  
+    & > div:empty {
+      position: relative;
+  
+      &:first-child {
+        inset-inline-start: 10%;
+        margin-inline-end: calc(-1 * var(--carousel-gap));
+      }
+  
+      &:last-child {
+        inset-inline-end: 10%;
+        margin-inline-start: calc(-1 * var(--carousel-gap));
+      }
+    }
+  }
+  
+ 
+  @media (prefers-reduced-motion: reduce) {
+    .Carousel {
+      scroll-behavior: auto;
+    }
+  }
+  
+  /* // Not a perfect fix but looks better in Safari 14 */
+  @supports not (aspect-ratio: 1/1) {
+    .Carousel {
+      .Card__media {
+        padding-block-end: 0 !important;
+      }
+      
+      .Card__image {
+        position: relative !important;
+      }
+    }
+  }
+  
+ 
+  
+  .Arrow {
+    align-items: center;
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-radius: 0.125rem;
+    cursor: pointer;
+    color: hsl(var(--theme-blue));
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    opacity: 1;
+    padding: 0.5rem;
+    transition: opacity 150ms, color 150ms;
+    width: 3rem;
+  
+    &:hover {
+      color: hsl(var(--theme-red));
+    }
+  
+    &:focus {
+      color: hsl(var(--theme-pink));
+      outline: none;
+  
+      svg {
+        box-shadow: 0 0 0 0.125rem hsla(var(--theme-white), 1),
+          0 0 0 0.25rem currentColor;
+      }
+  
+      &:not(:focus-visible) {
+        color: hsl(var(--theme-red));
+        svg {
+          box-shadow: none;
+        }
+      }
+    }
+  
+    &[disabled] {
+      color: hsl(var(--theme-dark));
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  
+    svg {
+      border-radius: 100%;
+      fill: currentColor;
+      height: 100%;
+      width: 100%;
+      transition: box-shadow 150ms;
+  
+      [dir='rtl'] & {
+        transform: scaleX(-1);
+      }
+    }
+  }
+  
+  .Hidden {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
+ 
+  
+  :root {
+    --card-link-color: var(--theme-blue);
+    --card-hover-color: var(--theme-red);
+    --card-focus-color: var(--theme-pink);
+    --card-inner-focus-color: var(--theme-white);
+    --card-shadow-color: var(--theme-black);
+    --card-foreground-color: var(--theme-dark);
+    --card-background-color: var(--theme-dark);
+  }
+  
+  .Card {
+    --card-ratio: auto 1/1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: [media-start] auto [media-end main-start] auto [main-end];
+    max-width: 100%;
+    position: relative;
+  }
+  
+
+  
+  .Card__main {
+    align-self: end;
+    color: hsl(var(--card-foreground-color));
+    grid-column: 1 / -1;
+    grid-row: main-start / main-end;
+    padding: 1.25rem;
+  
+    [href]:not(.Card__link) {
+      position: relative;
+      z-index: 2;
+    }
+  
+    & > * {
+      margin: 0;
+    }
+  }
+  
+  
+ 
+
+  
+  
+  .Main {
+    margin: 0 auto;
+    max-width: calc(90rem + 10vw);
+    padding: 1.5rem 3vw;
+    width: 100%;
+  
+    & > *:first-child {
+      margin-block-start: 0;
+    }
+  
+    & > h1 {
+      font-weight: 800;
+    }
+  
+    & > h1,
+    & > h2,
+    & > h3 {
+      line-height: 1.25;
+      margin-block: 1.5rem 1rem;
+    }
+  
+    & > ul {
+      margin-block: 1.5rem;
+      padding-inline: 2rem 0;
+  
+      li {
+        margin-block: 0.5rem;
+      }
+    }
+  
+    & > p {
+      margin-block: 1rem;
+    }
+  
+    a:not([class]) {
+      font-weight: 500;
+    }
+  }
+/* ==================================Today's Deal=========================== */
+.bullet{
+    width: 20px;
+    height: 40px;
+    background-color: brown;
+    border-radius: 4px;
+}
+.todays-deal{
+  margin-top: 100px;
+
+}
+.todays-deal div:first-child{
+    display: flex;
+    align-items: center;
+}
+.today-text{
+    padding: 0 10px;
+    color: brown;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+#timeClock{
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 15px;
+}
+.products{
+  
+  padding-top: 30px;
+  width: 100% !important;
+  overflow-x: scroll;
+  display: flex;
+  transition: transform 0.5s ease; 
+     /*  justify-content: space-around; */
+}
+.products::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.text-start{
+    width: 200px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.card-text{
+    color: brown;
+    font-size: 16px;
+    font-weight: bold;
+}
+.crossed-price{
+   color: rgba(220, 220, 220,1);
+   text-decoration: line-through;
+}
+.card-img-top{
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .card{
+   min-width: 270px !important;
+    height: 350px !important;
+    background-color: #F5F5F5 !important;
+    border: none !important;
+    border-radius: 4px;
+    margin:40px 20px ;
+  }
+  .image-box{
+    width: 100%;
+    height:100%;
+    padding: 50px;
+    /* display: flex;
+    justify-content: center; */
+    /* align-items: center; */
+  }
+  .view-all-products{
+    height: 100px;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    margin-bottom: 50px;
+    border-bottom:  2px solid rgba(220, 220, 220,0.5);
+  }
+  .view-all-products button{
+    width: 300px;
+    background-color: brown;
+    border-radius: 8px;
+    height: 60px;
+    font-size: 16px;
+    color: white;
+  }
+  .category{
+    padding-top: 30px;
+  width: 100% !important;
+  overflow-x: scroll;
+  display: flex;
+  transition: transform 0.5s ease; 
+  }
+  .card-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px !important;
+    height: 150px !important;
+    background-color: #F5F5F5 !important;
+    border: none !important;
+    border-radius: 4px;
+    margin:0 20px ;
+  }
+  .category::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    
+  }
+.This-month button{
+  background-color: brown;
+  color: white;
+  font-size: 16px;
+  width: 150px;
+  border-radius: 4px;
+}
+.service-image-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer{
+  background-color: #000000;
+}
